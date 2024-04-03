@@ -13,6 +13,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 color_palette = px.colors.qualitative.Pastel
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
+
 file_path = 'adult_features.csv'
 if not os.path.exists(file_path):
     ssl._create_default_https_context = ssl._create_unverified_context
