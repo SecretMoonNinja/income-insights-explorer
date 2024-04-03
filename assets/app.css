@@ -67,7 +67,6 @@ h1 {
 	margin: auto;
 }
 
-/* Additional styling for checkboxes, radio buttons, and dropdowns */
 .dcc_control input[type="checkbox"],
 .dcc_control input[type="radio"] {
 	margin-right: 1em;

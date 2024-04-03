@@ -1,8 +1,7 @@
 import dash
-from dash import dcc, html, Input,Output,State
+from dash import dcc, html, Input,Output
 import plotly.express as px
 import pandas as pd
-from sklearn.metrics import r2_score
 from ucimlrepo import fetch_ucirepo 
 import os
 import ssl
@@ -184,12 +183,15 @@ def update_heatmap(selected_income, selected_sex):
 
 @app.callback(
     Output('parallel-coordinates', 'figure'),
-    [Input('parallel-dropdown', 'value')]
+    [Input('parallel-dropdown', 'value'),
+     Input('entry-interval-dropdown', 'value')]  
 )
-def update_parallel_coordinates(selected_features):
-    # Ensure 'income_label' is always included in the selected features
+def update_parallel_coordinates(selected_features, entry_interval):
     selected_features = list(set(selected_features + ['income_label']))
     filtered_df = df[selected_features]
+    
+    filtered_df = filtered_df.sample(n=min(len(filtered_df), entry_interval))
+    
     fig = px.parallel_coordinates(filtered_df, color='income_label', color_continuous_scale=px.colors.diverging.Tealrose, labels={column: column for column in filtered_df.columns})
     fig.update_layout(title='Multidimensional Analysis of Income-Related Features', plot_bgcolor='darkgrey', paper_bgcolor='lightgrey')
     return fig
