@@ -191,7 +191,7 @@ def update_parallel_coordinates(selected_features):
     selected_features = list(set(selected_features + ['income_label']))
     filtered_df = df[selected_features]
     fig = px.parallel_coordinates(filtered_df, color='income_label', color_continuous_scale=px.colors.diverging.Tealrose, labels={column: column for column in filtered_df.columns})
-    fig.update_layout(title='Parallel Coordinates Plot\n', plot_bgcolor='darkgrey', paper_bgcolor='lightgrey')
+    fig.update_layout(title='Multidimensional Analysis of Income-Related Features', plot_bgcolor='darkgrey', paper_bgcolor='lightgrey')
     return fig
 
 
