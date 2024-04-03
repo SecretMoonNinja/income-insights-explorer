@@ -156,7 +156,6 @@ networkx==3.2.1
 nicegui==1.4.19
 nltk==3.8.1
 noteable-origami==0.0.35
-numba==0.58.1
 numpy==1.26.4
 oauthlib==3.2.2
 opendatasets==0.1.22
