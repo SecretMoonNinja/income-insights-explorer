@@ -196,7 +196,6 @@ pycparser==2.21
 pydantic==2.6.4
 pydantic_core==2.16.3
 pydub==0.25.1
-pyedgeconnect==0.15.4a1.dev0
 pygam==0.9.0
 Pygments==2.16.1
 PyJWT==2.8.0
